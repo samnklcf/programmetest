@@ -1,0 +1,243 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<head>
+   
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+
+    <link rel="shortcut icon" href="favicon.png">
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&amp;family=Lora:wght@400;700&amp;family=Montserrat:wght@400;500;600;700&amp;family=Nunito:wght@400;700&amp;display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="{% static 'cours/assets/fonts/fontawesome/fontawesome.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/libs/%40fancyapps/fancybox/dist/jquery.fancybox.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/libs/aos/dist/aos.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/libs/choices.js/public/assets/styles/choices.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/libs/flickity-fade/flickity-fade.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/libs/flickity/dist/flickity.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/libs/highlightjs/styles/vs2015.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/libs/jarallax/dist/jarallax.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/libs/quill/dist/quill.core.css' %}" />
+ 
+    
+ 
+
+    <link rel="stylesheet" href="{% static 'cours/assets/css/theme.min.css' %}">
+    <link rel="stylesheet" href="{% static 'cours/assets/css/loader.css' %}" />
+    {% for lesson in lessons %}
+
+    <title>Leçon {{ lesson.title }}</title>
+
+</head>
+<body class="p bg-white" >
+
+   
+    {% include 'cours/loader.html' %}
+ 
+      <header class="bg-white border-bottom py-3 header-fixed" >
+          <div class="px-5 px-lg-8 w-100">
+              <div class="d-md-flex align-items-center">
+                  <!-- Brand -->
+                  <a class="navbar-brand mb-2 mb-md-0" href="{% url 'home' %}">
+                      <h2 style="font-weight: 900;">Pg</h2>
+                  </a>
+  
+                 
+                  <div class="ms-md-6 ms-wd-12 ms-xl-10 me-auto mb-5 mb-md-0">
+                      <h3 class="mb-0 line-clamp-2 ms-wd-3"> Theme: {{ theme.title }}</h3>
+                  </div>
+  
+                  
+                  <a href="{% url 'themedetail' theme.slug %}" class="btn btn-sm btn-primary ms-md-6 px-6 mb-3 mb-md-0 flex-shrink-0">Retour</a>
+              </div>
+          </div>
+      </header>
+  
+  
+    
+ 
+      
+      <div class="mt-15 mt-md-11 pt-md-3">
+       
+
+        <div class="container">
+            <div class="row mb-11">
+                <div class="col-lg-11 col-wd-12 ms-lg-auto pt-11 pt-lg-8">
+                    <h2 class="font-size-xl mb-6">
+                        Leçon: {{ lesson.title }}
+                    </h2>
+
+                    <video src="{{ lesson.video.url }}" class="img-fluid" controls ></video>
+
+                    <h3 class="">Description</h3>
+
+                    {{lesson.description | safe}}
+!
+                    <div class="d-md-flex align-items-center justify-content-between mb-8">
+
+                       {% if lessons.has_previous %}
+                       <a href="?{{ cours }}={{ lessons.previous_page_number }}" class="btn btn-teal d-flex align-items-center text-white mb-5 mb-md-0 btn-block mw-md-280p justify-content-center">
+                        <i class="fas fa-arrow-left font-size-xs"></i>
+                        <span class="ms-3">Cours précédent</span>
+                       </a>
+                       {% endif %}
+
+                       {% if lessons.has_previous == False %}
+                       <a href="?{{ cours }}=1" class="btn btn-teal d-flex align-items-center text-white mb-5 mb-md-0 btn-block mw-md-280p justify-content-center">
+                        <i class="fas fa-stop-circle font-size-xs"></i>
+                        <span class="ms-3">Pas de cours précédent</span>
+                       </a>
+                       {% endif %}
+                       
+                        
+                        
+
+                        Page {{ lessons.number }} / {{ lessons.paginator.num_pages }}
+                         
+                        {% if lessons.has_next %}
+                        <a href="?{{ cours }}={{ lessons.next_page_number }}" class="btn btn-teal d-flex align-items-center text-white btn-block mw-md-280p justify-content-center mt-0">
+                            <span class="me-3">Cours suivant</span>
+                            <i class="fas fa-arrow-right font-size-xs"></i>
+                        </a>
+                        {% endif %}
+                        
+                        
+                        
+                        
+                    </div>
+
+                    <h3 class="mb-6">Comment</h3>
+                    <ul class="list-unstyled pt-2">
+                        <li class="media d-flex">
+                            <div class="avatar avatar-xxl me-3 me-md-6 flex-shrink-0">
+                                <img src="assets/img/avatars/avatar-1.jpg" alt="..." class="avatar-img rounded-circle">
+                            </div>
+                            <div class="media-body flex-grow-1">
+                                <div class="d-md-flex align-items-center mb-5">
+                                    <div class="me-auto mb-4 mb-md-0">
+                                        <h5 class="mb-0">Oscar Cafeo</h5>
+                                        <p class="font-size-sm font-italic">Beautiful courses</p>
+                                    </div>
+                                    <div class="star-rating">
+                                        <div class="rating" style="width:100%;"></div>
+                                    </div>
+                                </div>
+                                <p class="mb-6 line-height-md">This course was well organized and covered a lot more details than any other Figma courses. I really enjoy it. One suggestion is that it can be much better if we could complete the prototype together. Since we created 24 frames, I really want to test it on Figma mirror to see all the connections. Could you please let me take a look at the complete prototype?</p>
+                            </div>
+                        </li>
+                        <li class="media d-flex">
+                            <div class="avatar avatar-xxl me-3 me-md-6 flex-shrink-0">
+                                <img src="assets/img/avatars/avatar-2.jpg" alt="..." class="avatar-img rounded-circle">
+                            </div>
+                            <div class="media-body flex-grow-1">
+                                <div class="d-md-flex align-items-center mb-5">
+                                    <div class="me-auto mb-4 mb-md-0">
+                                        <h5 class="mb-0">Alex Morgan</h5>
+                                        <p class="font-size-sm font-italic">Beautiful courses</p>
+                                    </div>
+                                    <div class="star-rating">
+                                        <div class="rating" style="width:100%;"></div>
+                                    </div>
+                                </div>
+                                <p class="mb-6 line-height-md">This course was well organized and covered a lot more details than any other Figma courses. I really enjoy it. One suggestion is that it can be much better if we could complete the prototype together. Since we created 24 frames, I really want to test it on Figma mirror to see all the connections. Could you please let me take a look at the complete prototype?</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="border shadow rounded p-6 p-md-9">
+                        <h3 class="mb-2">Add Reviews & Rate</h3>
+                        <div class="">What is it like to Course?</div>
+                        <form>
+                            <div class="clearfix">
+                                <fieldset class="slect-rating mb-3">
+                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <label class = "full" for="star5" title="Awesome - 5 stars"></label>
+
+                                    <input type="radio" id="star4half" name="rating" value="4 and a half" />
+                                    <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
+
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+
+                                    <input type="radio" id="star3half" name="rating" value="3 and a half" />
+                                    <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
+
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label class = "full" for="star3" title="Meh - 3 stars"></label>
+
+                                    <input type="radio" id="star2half" name="rating" value="2 and a half" />
+                                    <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
+
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+
+                                    <input type="radio" id="star1half" name="rating" value="1 and a half" />
+                                    <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
+
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+
+                                    <input type="radio" id="starhalf" name="rating" value="half" />
+                                    <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
+                                </fieldset>
+                            </div>
+
+                            <div class="form-group mb-6">
+                                <label for="exampleInputTitle1">Review Title</label>
+                                <input type="text" class="form-control placeholder-1" id="exampleInputTitle1" placeholder="Courses">
+                            </div>
+
+                            <div class="form-group mb-6">
+                                <label for="exampleFormControlTextarea1">Review Content</label>
+                                <textarea class="form-control placeholder-1" id="exampleFormControlTextarea1" rows="6" placeholder="Content"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block mw-md-300p">SUBMIT REVIEW</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+      
+      {% endfor %}
+
+    
+    <script src="{% static 'cours/assets/js/loader.js' %}"></script>
+    <script src="{% static 'cours/assets/libs/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/%40fancyapps/fancybox/dist/jquery.fancybox.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/aos/dist/aos.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/choices.js/public/assets/scripts/choices.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/countup.js/dist/countUp.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/dropzone/dist/min/dropzone.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/flickity/dist/flickity.pkgd.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/flickity-fade/flickity-fade.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/highlightjs/highlight.pack.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/imagesloaded/imagesloaded.pkgd.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/isotope-layout/dist/isotope.pkgd.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/jarallax/dist/jarallax.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/jarallax/dist/jarallax-video.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/jarallax/dist/jarallax-element.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/parallax-js/dist/parallax.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/quill/dist/quill.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/smooth-scroll/dist/smooth-scroll.min.js' %}"></script>
+        <script src="{% static 'cours/assets/libs/typed.js/lib/typed.min.js' %}"></script>
+
+       
+
+        <!-- Theme JS -->
+        <script src="{% static 'cours/assets/js/theme.min.js' %}"></script>
+
+
+</body>
+
+<!-- Mirrored from transvelo.github.io/skola-html/5.1/lesson-single-v2.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 26 Jan 2022 12:13:07 GMT -->
+</html>
