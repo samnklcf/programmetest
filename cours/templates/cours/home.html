@@ -1,8 +1,9 @@
 {% extends 'cours/base.html' %}
 {% load static %}
 {% block content %}
-
-
+{% if request.user.profil.Etudiant.bio == "" %}
+{% include 'cours/noprofil.html' %}
+{% else %}
 <section class="py-15 pt-xl-14 mt-n14 pb-lg-15 bg-dark bg-cover position-relative">
     <!-- Cursor position parallax -->
     <div class="position-absolute right-0 left-0 top-0 bottom-0">
@@ -972,6 +973,10 @@
         </div>
     </div>
 </section>
+
+{% endif %}
+
+
 
 
 <!-- FOOTER

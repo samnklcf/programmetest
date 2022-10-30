@@ -21,7 +21,7 @@ urlpatterns = [
     path("enregistrement", register, name="register"),
     path("login/", connexion, name="login"),
     path("deconnexion/", deconnexion, name="deconnexion"),
-    path(f'etudiant/{uuid.uuid4()}', Etudiant, name="etudiant"),
+    path('etudiant/', Etudiant, name="etudiant"),
     
     # re_path(r"^/categorie/(?P<slug>[-\w])*$", voir, name="categorie"),
 

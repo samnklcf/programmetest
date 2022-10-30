@@ -12,8 +12,9 @@
     </form>
 {% endif %} {% endcomment %}
 
-
-
+{% if request.user.profil.Etudiant.bio == "" %}
+{% include 'cours/noprofil.html' %}
+{% else %}
 
 <div class="bg-dark pb-9 pt-8 pt-md-11">
     <div class="container">
@@ -771,6 +772,7 @@
     </div>
 </div>
 
+{% endif %}
 
 
 

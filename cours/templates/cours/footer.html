@@ -1,4 +1,12 @@
 {% load static %}
+
+{% if request.user.profil.Etudiant.bio == "" %}
+
+
+
+{% else %}
+
+
 <footer class="pt-8 pt-md-13 pt-xl-15 position-relative bg-light">
     <!-- Shape -->
     <div class="shape shape-blur mb-n-1 shape-top shape-flip-both svg-shim text-white mt-n-1">
@@ -234,8 +242,14 @@
                     </div>
                 </div>
             </div>
-        </div> <!-- / .row -->
-    </div> <!-- / .container -->
+        </div> 
+    </div> 
 </footer>
+{% endif %}
+
+
+
+
+
 
 

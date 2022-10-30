@@ -1,6 +1,11 @@
 {% extends 'cours/base.html' %}
 {% load static %}
 {% block content %}
+{% if request.user.profil.Etudiant.bio == "" %}
+   
+    {% include 'cours/noprofil.html' %}
+    
+    {% else %}
 
 <header class="py-8 py-md-11" style="background-image: none;">
     <div class="container text-center py-xl-2">
@@ -107,6 +112,8 @@
 
 {% endfor %}
 </div>
+
+{% endif %}
 
 
 

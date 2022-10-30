@@ -2,6 +2,12 @@
 {% load static %}
 {% block content %}
 
+{% if request.user.profil.Etudiant.bio == "" %}
+    
+    {% include 'cours/noprofil.html' %}
+    
+    {% else %}
+
 <header class="py-8 py-md-11" style="background-image: none;">
     <div class="container text-center py-xl-2">
         <h1 class="display-4 fw-semi-bold mb-0">Nos cours</h1>
@@ -78,6 +84,7 @@
     
     
 </div>
+{% endif %}
 
 
 

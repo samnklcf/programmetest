@@ -19,5 +19,5 @@ class ProfilForm(forms.ModelForm):
     class Meta:
         model = etudiant
         fields = ('__all__')
-        # exclude = ('user',)
+        exclude = ('user',)
         

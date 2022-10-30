@@ -233,11 +233,13 @@ def connexion(request):
 
 
 # --------------------------créer deu profil------------------------
-
+@login_required(redirect_field_name="/cours/login/")
 def Etudiant(request):
     if request.method == 'POST':
         form = ProfilForm(request.POST, request.FILES)
         if form.is_valid():
+            form = form.save(commit=False)
+            form.user = request.user
             form.save()
             return redirect(reverse(home))
     else:
