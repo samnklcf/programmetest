@@ -58,8 +58,9 @@ class Theme(models.Model):
     date = models.DateTimeField(auto_now=True)
     niveau = models.ForeignKey(Niveau, on_delete=models.CASCADE)
     categorie = models.ForeignKey(Category,on_delete=models.CASCADE)
-    auteur = models.CharField(max_length=50)
+    auteur = models.ForeignKey(User,on_delete=models.CASCADE)
     identifiant = models.CharField(null=True, max_length=100, blank=True)
+    timing = models.PositiveIntegerField(null=True, verbose_name="Durée de la formation en heure")
 
     def __str__(self):
         return self.title
@@ -85,23 +86,7 @@ class Commentaire(models.Model):
         return self.userame
 
 
-class Lesson(models.Model):
-    chapitre = models.ForeignKey(Theme, on_delete=models.CASCADE)
-    title = models.CharField(max_length=50)
-    description = RichTextField()
-    slug = models.SlugField(null=True, blank=True)
-    miniature = models.ImageField(upload_to="miniature")
-    video = models.FileField(upload_to="videos")
-    document = models.FileField(upload_to="document")
-    date = models.DateTimeField(auto_now=True)
-    
-    
-    def __str__(self):
-        return self.title
-    
-    def save(self, *args, **kwargs):
-        self.slug = slugify(self.title)
-        super().save(*args, **kwargs)
+
     
 
 class profil(models.Model):
@@ -125,6 +110,21 @@ class profil(models.Model):
     
     date = models.DateTimeField(auto_now=True)
     
+
+class historique(models.Model):
+
+    user = models.ForeignKey(User, verbose_name=("Utilisateur"), on_delete=models.CASCADE)
+    theme_id = models.CharField(default="", max_length=1000)
+    date = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        verbose_name = ("Order par theme")
+        verbose_name_plural = ("Order par theme")
+
+    def __str__(self):
+        return f'{self.user.username} a prix le theme " {self.theme} "'
+    
+
    
     
     
@@ -138,10 +138,11 @@ class etudiant(profil):
 class professeur(profil):
     nom = models.CharField(max_length=50)
     prenom = models.CharField(max_length=50)
-    email = models.EmailField(max_length=254, default="samuel@gmail.com", null=False)
+    email = models.EmailField(max_length=254, null=False)
     bio = models.TextField(null = False)
     def __str__(self):
         return self.user.username
+    
     
     
     

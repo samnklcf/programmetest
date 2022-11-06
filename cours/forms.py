@@ -6,8 +6,8 @@ from .models import *
 class CommentaireForm(forms.ModelForm):
     class Meta:
         model = Commentaire
-        fields = ('__all__')
-        exclude = ('theme','date',)
+        fields = ("__all__")
+        exclude = ('theme','date','auteur')
         
 
 class ConnexionForm(forms.Form):
@@ -21,3 +21,16 @@ class ProfilForm(forms.ModelForm):
         fields = ('__all__')
         exclude = ('user',)
         
+
+class historiqueForm(forms.ModelForm):
+    class Meta:
+        model = historique
+        fields = ('__all__')
+        exclude = ('theme_id','user')
+        
+class add_themeForm(forms.ModelForm):
+    class Meta:
+        model = Theme
+        field = ('__all__')
+        exclude = ('auteur','slug', 'identifiant')
+    

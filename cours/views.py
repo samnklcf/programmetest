@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView,UpdateView, DeleteView
 from .models import *
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator
@@ -55,9 +55,12 @@ def cat(request):
 
 @login_required(redirect_field_name="/cours/login/")
 def themedetail(request, slug):
+    
     theme = Theme.objects.get(slug=slug)
     commentaires = theme.commentaire_set.all()
-    lessons = theme.lesson_set.all()
+   
+    
+    
     cats = Category.objects.all()
     p = Paginator(cats, 10)
     page = request.GET.get('categorie')
@@ -77,7 +80,6 @@ def themedetail(request, slug):
     context = {
         "theme" : theme,
         "commentaires": commentaires,
-        "lessons": lessons,
         "form" : form,
         'cat': cat,
     }
@@ -141,22 +143,52 @@ def liste(request):
     }
     return render (request, 'cours/liste.html', context)
 
+# --------------------------------------userlesson theme ----------------
+
+def user_liste(request):
+    themes = Theme.objects.all().order_by('-date')
+    cats = Category.objects.all()
+    p = Paginator(cats, 10)
+    page = request.GET.get('categorie')
+    cat = p.get_page(page)
+    
+    context = {
+        "themes" : themes,
+        'cat': cat,
+    }
+    return render (request, 'cours/use_liste.html', context)
+
+
+
+# ----------------------------------supprimer ------------------------------------
+
+class supp(DeleteView):
+    model = Theme
+    context_object_name = "theme"
+    template_name = "cours/supprimer.html"
+    def get_success_url(self):
+        
+        return reverse(user_liste)
+    
+
+
 
 # --------------------Afficher les lesson 1 à 1----------------------
 
-def ListeLesson(request, slug):
-    theme = Theme.objects.get(slug=slug)
-    # lesson = theme.lesson_set.all().order_by('-date')
+# def ListeLesson(request, slug):
     
-    lesson = theme.lesson_set.all()
+#     theme = Theme.objects.get(slug=slug)
+#     # lesson = theme.lesson_set.all().order_by('-date')
     
-    p = Paginator(lesson, 1)
-    page = request.GET.get('cours')
-    lessons = p.get_page(page)
+#     lesson = theme.lesson_set.all()
+    
+#     p = Paginator(lesson, 1)
+#     page = request.GET.get('cours')
+#     lessons = p.get_page(page)
     
     
     
-    return render(request, 'cours/test/liste.html', {'theme':theme, 'lesson': lesson, 'lessons': lessons})
+#     return render(request, 'cours/test/liste.html', {'theme':theme, 'lesson': lesson, 'lessons': lessons})
 
 # -------------------------------lesson en video------------------
 
@@ -202,6 +234,21 @@ def register(request):
         
     return render(request, 'cours/register.html', locals())
 
+# ----------------------------modifier_____________________________________________
+
+class update_lesson(UpdateView):
+    model = Theme
+    fields = ('title', 'description', "miniature", "video", "prix", 'niveau', "categorie", 'timing')
+    context_object_name = "themes"
+    template_name = "cours/update_cours.html"
+    def get_success_url(self):
+        return reverse(user_liste)   
+    
+     
+
+
+
+
 # class LoginTap(LoginView):
 #     template_name = 'cours/connexion.html'
 #     form = ConnexionForm
@@ -231,6 +278,35 @@ def connexion(request):
 
     return render(request, 'cours/connexion.html', locals())
 
+# --------------------------Ajouter un theme ------------------------------------------
+
+@login_required(redirect_field_name="/cours/login/")
+def add_theme(request):
+    if request.method == 'POST':
+        form = add_themeForm(request.POST, request.FILES)
+        if form.is_valid():
+            form = form.save(commit=False)
+            form.auteur = request.user
+            form.save()
+            return redirect(reverse(user_liste))
+        else:
+            error = True
+    else:
+        form = add_themeForm()
+    return render(request, 'cours/add_theme.html', locals())
+
+    
+    
+
+# -------------------------------Ajouter un cours ----------------------------------------
+
+
+
+
+
+
+
+
 
 # --------------------------créer deu profil------------------------
 @login_required(redirect_field_name="/cours/login/")
@@ -253,7 +329,6 @@ def deconnexion(request):
     return redirect('home')
 
 # ----------------------partie des commentaire ---------------------
-
 
 
 # def applesson(request, slug):

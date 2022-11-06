@@ -75,7 +75,7 @@
 
                         </div>
                         <h6 class="mb-0 ms-3 me-auto text-white">Durée: </h6>
-                        <span>8h</span>
+                        <span>{{ theme.timing }}</span>
                     </li>
                     {% comment %} <li class="list-group-item d-flex align-items-center py-3 text-white bg-transparent border-white-10">
                         <div class="text-white d-flex icon-uxs">
@@ -185,8 +185,12 @@
                 
 
                 <div class="d-md-flex">
-                    <a href="{% url 'lessonvideo' theme.identifiant %}"><button class="btn btn-blue btn-wide mb-4 mb-md-0 me-md-3 flex-grow-1" type="button" name="button">Commencer</button></a>
-                    <button class="btn btn-orange btn-wide mb-4 mb-md-0 ms-md-3 flex-grow-1" type="button" name="button">ENROLL</button>
+                    {% if theme.auteur.username == request.user.username %}
+                    <a href="{% url 'maj' theme.slug %}"><button class="btn btn-blue btn-wide mb-4 mb-md-0 me-md-3 flex-grow-1" type="button" name="button">Modifier</button></a>
+                    <a href="{% url 'supp' theme.slug %}"><button class="btn btn-warning btn-wide mb-4 mb-md-0 ms-md-3 flex-grow-1" type="button" name="button">Supprimer</button></a>
+                    
+                    
+                    {% endif %}
                 </div>
             </div>
         </div>
