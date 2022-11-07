@@ -126,17 +126,17 @@
 
                
                 <li class="nav-item dropdown dropdown-full-width">
-                    <a class="nav-link " id="navbarLandings" href="#">
+                    <a class="nav-link " id="navbarLandings" href="{% url 'about' %}">
                         A-propos
                     </a>
                     
                 </li>
-                <li class="nav-item dropdown dropdown-full-width">
+                {% comment %} <li class="nav-item dropdown dropdown-full-width">
                     <a class="nav-link " id="navbarLandings" href="#">
                         Blog
                     </a>
                     
-                </li>
+                </li> {% endcomment %}
                 <!-- <li class="nav-item dropdown dropdown-full-width">
                     <a class="nav-link " id="navbarLandings"  href="#" >
                         Recherche
@@ -198,7 +198,7 @@
                 <!-- Icon -->
                 
                 {% if user.is_authenticated %}
-                <a href="{% url 'deconnexion' %}" class="nav-link d-flex px-3 px-md-4 text-secondary icon-xs"  title='Déconnexion'>
+                <a href="{% url 'use_liste' %}" class="nav-link d-flex px-3 px-md-4 text-secondary icon-xs"  title='Déconnexion'>
                     
                     <img src="{{ request.user.profil.image.url }}" alt="" width="30" height="30" style="border-radius: 50%;">
                 </a>

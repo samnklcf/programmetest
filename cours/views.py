@@ -328,6 +328,34 @@ def deconnexion(request):
     logout(request)
     return redirect('home')
 
+
+
+
+
+# ------------------------about----------------------------
+def about(request):
+    perso =etudiant.objects.all()
+    cats = Category.objects.all()
+    p = Paginator(cats, 10)
+    page = request.GET.get('categorie')
+    cat = p.get_page(page)
+    
+    
+    if request.method == 'POST':
+        test = False
+        form = emailForm(request.POST)
+        if form.is_valid():
+            form.save()
+            test = True
+            return redirect(reverse(about))
+        
+    else:
+        form = emailForm()
+    
+    
+    
+    return render(request, 'cours/about.html', locals())
+
 # ----------------------partie des commentaire ---------------------
 
 
@@ -344,4 +372,7 @@ def deconnexion(request):
 # def detail(request, slug):
     
 #     return render(request, 'cours/test/cours.html', locals())
+
+
+
 

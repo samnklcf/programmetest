@@ -143,6 +143,21 @@ class professeur(profil):
     def __str__(self):
         return self.user.username
     
+
+class email(models.Model):
+    email = models.EmailField(max_length=254)
+    date = models.DateField(auto_now_add=True)
+    
+
+    class Meta:
+        verbose_name = ("Abonnée")
+        verbose_name_plural = ("Abonnées")
+
+    def __str__(self):
+        return self.email
+
+   
+
     
     
     

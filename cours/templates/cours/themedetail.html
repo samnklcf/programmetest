@@ -34,7 +34,7 @@
                 <div class="d-md-flex align-items-center mb-6">
                     <div class="border rounded-circle d-inline-block mb-4 mb-md-0 bg-white">
                         <div class="p-2">
-                            <img src="{{ theme.miniature.url }}" alt="..." class="rounded-circle" width="68" height="68">
+                            <img src="{{ theme.auteur.profil.image.url }}" alt="..." class="rounded-circle" width="68" height="68">
                         </div>
                     </div>
 
@@ -99,19 +99,7 @@
                         <h6 class="mb-0 ms-3 me-auto text-white">Enrolled</h6>
                         <span>1982 students</span>
                     </li> {% endcomment %}
-                     <li class="list-group-item d-flex align-items-center py-3 text-white bg-transparent border-white-10">
-                        <div class="text-white d-flex icon-uxs">
-                            <!-- Icon -->
-                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.5936 3.78122H7.72003L6.56976 0.320872C6.50607 0.12928 6.32686 0 6.12495 0H1.40624C0.630839 0 0 0.630839 0 1.40624V10.8124C0 11.5878 0.630839 12.2187 1.40624 12.2187H6.57173L7.71263 15.6698C7.77566 15.8719 7.96259 16 8.1604 16C8.1615 16 8.16259 15.9999 8.16369 15.9999H14.5937C15.3691 15.9999 15.9999 15.369 15.9999 14.5936V5.18746C15.9999 4.41206 15.369 3.78122 14.5936 3.78122ZM1.40624 11.2812C1.14777 11.2812 0.937493 11.0709 0.937493 10.8124V1.40624C0.937493 1.14777 1.14777 0.937493 1.40624 0.937493H5.7868L9.22511 11.2812C7.46913 11.2812 3.14004 11.2812 1.40624 11.2812ZM9.14771 12.2187L8.22897 14.2449L7.55913 12.2187H9.14771ZM15.0624 14.5936C15.0624 14.8521 14.8521 15.0624 14.5936 15.0624H8.88768L10.3018 11.9435C10.3525 11.8316 10.3549 11.7077 10.3197 11.6018L8.03166 4.71871H14.5936C14.8521 4.71871 15.0624 4.92899 15.0624 5.18746V14.5936Z" fill="currentColor"/>
-                                <path d="M6.12497 5.65623H4.71873C4.45986 5.65623 4.24998 5.8661 4.24998 6.12497C4.24998 6.38385 4.45986 6.59372 4.71873 6.59372H5.5756C5.3821 7.13931 4.86107 7.53121 4.24998 7.53121C3.47458 7.53121 2.84374 6.90037 2.84374 6.12497C2.84374 5.34958 3.47458 4.71874 4.24998 4.71874C4.6256 4.71874 4.97873 4.86502 5.24435 5.13061C5.42738 5.31367 5.72419 5.31367 5.90725 5.13061C6.09028 4.94755 6.09028 4.65077 5.90725 4.46771C5.46457 4.02503 4.87601 3.78125 4.24998 3.78125C2.95765 3.78125 1.90625 4.83264 1.90625 6.12497C1.90625 7.4173 2.95765 8.4687 4.24998 8.4687C5.54232 8.4687 6.59371 7.4173 6.59371 6.12497C6.59371 5.8661 6.38384 5.65623 6.12497 5.65623Z" fill="currentColor"/>
-                                <path d="M13.625 7.53124H12.2187V7.0625C12.2187 6.80362 12.0089 6.59375 11.75 6.59375C11.4911 6.59375 11.2812 6.80362 11.2812 7.0625V7.53124H9.875C9.61612 7.53124 9.40625 7.74112 9.40625 7.99999C9.40625 8.25886 9.61612 8.46874 9.875 8.46874H12.5981C12.449 8.91201 12.1287 9.43735 11.7563 9.94291C11.6761 9.8346 11.5968 9.72376 11.5204 9.61138C11.3748 9.39729 11.0833 9.34176 10.8692 9.48735C10.6551 9.63291 10.5997 9.92447 10.7452 10.1386C10.8767 10.332 11.0146 10.5202 11.152 10.6985C10.9177 10.9702 10.6868 11.2163 10.4842 11.4154C10.2994 11.5967 10.2966 11.8935 10.4779 12.0783C10.6585 12.2623 10.9552 12.2666 11.1408 12.0846C11.157 12.0687 11.4126 11.8169 11.7541 11.4303C12.0873 11.8115 12.3367 12.0621 12.356 12.0814C12.539 12.2644 12.8357 12.2645 13.0188 12.0815C13.2019 11.8985 13.202 11.6017 13.019 11.4186C13.0141 11.4137 12.7271 11.1251 12.3609 10.698C13.0245 9.84029 13.429 9.09314 13.5691 8.46874H13.6249C13.8838 8.46874 14.0937 8.25886 14.0937 7.99999C14.0937 7.74112 13.8839 7.53124 13.625 7.53124Z" fill="currentColor"/>
-                            </svg>
-
-                        </div>
-                        <h6 class="mb-0 ms-3 me-auto text-white">Nombre de lessons : </h6>
-                        <span>{{ lessons.count }}</span>
-                    </li> 
+                     
 
                     <li class="list-group-item d-flex align-items-center py-3 text-white bg-transparent border-white-10">
                         <div class="text-white d-flex icon-uxs">
@@ -125,6 +113,7 @@
                         </div>
                         <h6 class="mb-0 ms-3 me-auto text-white">Niveau: </h6>
                         <span>{{theme.niveau }}</span>
+                        
                     </li>
                     <li class="list-group-item d-flex align-items-center py-3 text-white bg-transparent border-white-10">
                         <div class="text-white d-flex icon-uxs">
@@ -214,12 +203,12 @@
                 <div class="d-flex align-items-center mb-6">
                     <div class="d-inline-block rounded-circle border me-6 p-2">
                         <div class="avatar avatar-size-120">
-                            <img src="{{ theme.miniature.url }}" alt="..." class="avatar-img rounded-circle">
+                            <img src="{{ theme.auteur.profil.image.url }}" alt="..." class="avatar-img rounded-circle">
                         </div>
                     </div>
                     <div class="media-body">
                         <h4 class="mb-0">{{theme.auteur}}</h4>
-                        <span>iOS Developer & UI Designer</span>
+                        <span>Créateur du cours</span>
                     </div>
                 </div>
 
@@ -238,91 +227,12 @@
 
             <div class="mb-8">
                 <h3 class="mb-6">Feedbacks ({{ commentaires.count }})</h3>
-                <div class="row align-items-center mb-8">
-                    <div class="col-md-auto mb-5 mb-md-0">
-                        <div class="border rounded shadow d-flex align-items-center justify-content-center px-9 py-8">
-                            <div class="m-2 text-center">
-                                <h1 class="display-2 mb-0 fw-medium mb-n1">4.93</h1>
-                                <h5 class="mb-0">Course rating</h5>
-                                <div class="star-rating">
-                                    <div class="rating" style="width:100%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md">
-                        <div class="d-md-flex align-items-center my-3 my-md-4">
-                            <div class="bg-gray-200 position-relative rounded-pill flex-grow-1 me-md-5 mb-2 mb-md-0 mw-md-260p" style="height: 10px;">
-                                <div class="bg-teal rounded-pill position-absolute top-0 left-0 bottom-0" style="width: 90%;"></div>
-                            </div>
-
-                            <div class="d-flex align-items-center">
-                                <div class="star-rating star-rating-lg secondary me-4">
-                                    <div class="rating" style="width:90%;"></div>
-                                </div>
-                                <span>4132</span>
-                            </div>
-                        </div>
-
-                        <div class="d-md-flex align-items-center my-3 my-md-4">
-                            <div class="bg-gray-200 position-relative rounded-pill flex-grow-1 me-md-5 mb-2 mb-md-0 mw-md-260p" style="height: 10px;">
-                                <div class="bg-teal rounded-pill position-absolute top-0 left-0 bottom-0" style="width: 60%;"></div>
-                            </div>
-
-                            <div class="d-flex align-items-center">
-                                <div class="star-rating star-rating-lg secondary me-4">
-                                    <div class="rating" style="width:60%;"></div>
-                                </div>
-                                <span>150</span>
-                            </div>
-                        </div>
-
-                        <div class="d-md-flex align-items-center my-3 my-md-4">
-                            <div class="bg-gray-200 position-relative rounded-pill flex-grow-1 me-md-5 mb-2 mb-md-0 mw-md-260p" style="height: 10px;">
-                                <div class="bg-teal rounded-pill position-absolute top-0 left-0 bottom-0" style="width: 50%;"></div>
-                            </div>
-
-                            <div class="d-flex align-items-center">
-                                <div class="star-rating star-rating-lg secondary me-4">
-                                    <div class="rating" style="width:50%;"></div>
-                                </div>
-                                <span>50</span>
-                            </div>
-                        </div>
-
-                        <div class="d-md-flex align-items-center my-3 my-md-4">
-                            <div class="bg-gray-200 position-relative rounded-pill flex-grow-1 me-md-5 mb-2 mb-md-0 mw-md-260p" style="height: 10px;">
-                                <div class="bg-teal rounded-pill position-absolute top-0 left-0 bottom-0" style="width: 35%;"></div>
-                            </div>
-
-                            <div class="d-flex align-items-center">
-                                <div class="star-rating star-rating-lg secondary me-4">
-                                    <div class="rating" style="width:35%;"></div>
-                                </div>
-                                <span>32</span>
-                            </div>
-                        </div>
-
-                        <div class="d-md-flex align-items-center my-3 my-md-4">
-                            <div class="bg-gray-200 position-relative rounded-pill flex-grow-1 me-md-5 mb-2 mb-md-0 mw-md-260p" style="height: 10px;">
-                                <div class="bg-teal rounded-pill position-absolute top-0 left-0 bottom-0" style="width: 15%;"></div>
-                            </div>
-
-                            <div class="d-flex align-items-center">
-                                <div class="star-rating star-rating-lg secondary me-4">
-                                    <div class="rating" style="width:15%;"></div>
-                                </div>
-                                <span>1</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
                 <ul class="list-unstyled pt-2">
                     
                     {% for commentaire in commentaires %}
-                    <li class="media d-flex">
+                    <li class="media d-flex" style="border-radius: 10px; padding: 12px; box-shadow: 0 0 24px rgba(0, 0, 0, 0.187); margin-bottom: 10px;">
                         <div class="avatar avatar-xxl me-3 me-md-6 flex-shrink-0">
                             <img src="{{ theme.miniature.url }}" alt="..." class="avatar-img rounded-circle">
                         </div>
@@ -340,8 +250,13 @@
                         </div>
                     </li>
                     {% empty %}
-                    <h5 class="mb-0">Soyez le premier à commenter 😊</h5>
-                    
+                    <center style="width: 100% !important; display:flex; align-items:center; justify-content:center;">
+                        <div class="sam" style="text-align: center; width: 500px; color: white !important; background: #06054d; padding: 20px; border-radius: 4px;">
+            
+                            <h2 style='text-align: center; color: white !important; font: 900 !important;'>Soyez le premier à commenter<br> 🤗</h2>
+                            <p><a href="{% url 'home' %}"  class="btn btn-white">Retour à l'accueil</a></p>
+                        </div>
+                    </center>
 
 
                     {% endfor %}
@@ -349,43 +264,11 @@
                
 
                 <div class="border shadow rounded p-6 p-md-9">
-                    <h3 class="mb-2">Add Reviews & Rate</h3>
-                    <div class="">What is it like to Course?</div>
-                    <form method="POST" action="">
+                    <h3 class="mb-2">Laissez nous vos avis</h3>
+                    <div class=""></div>
+                    <form action="" method="post"> 
                         {% csrf_token %}
-                        <div class="clearfix">
-                            <fieldset class="slect-rating mb-3">
-                                <input type="radio" id="star5" name="rating" value="5" />
-                                <label class = "full" for="star5" title="Awesome - 5 stars"></label>
-
-                                <input type="radio" id="star4half" name="rating" value="4 and a half" />
-                                <label class="half" for="star4half" title="Pretty good - 4.5 stars"></label>
-
-                                <input type="radio" id="star4" name="rating" value="4" />
-                                <label class = "full" for="star4" title="Pretty good - 4 stars"></label>
-
-                                <input type="radio" id="star3half" name="rating" value="3 and a half" />
-                                <label class="half" for="star3half" title="Meh - 3.5 stars"></label>
-
-                                <input type="radio" id="star3" name="rating" value="3" />
-                                <label class = "full" for="star3" title="Meh - 3 stars"></label>
-
-                                <input type="radio" id="star2half" name="rating" value="2 and a half" />
-                                <label class="half" for="star2half" title="Kinda bad - 2.5 stars"></label>
-
-                                <input type="radio" id="star2" name="rating" value="2" />
-                                <label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
-
-                                <input type="radio" id="star1half" name="rating" value="1 and a half" />
-                                <label class="half" for="star1half" title="Meh - 1.5 stars"></label>
-
-                                <input type="radio" id="star1" name="rating" value="1" />
-                                <label class = "full" for="star1" title="Sucks big time - 1 star"></label>
-
-                                <input type="radio" id="starhalf" name="rating" value="half" />
-                                <label class="half" for="starhalf" title="Sucks big time - 0.5 stars"></label>
-                            </fieldset>
-                        </div>
+                    
 
                         <div class="form-group mb-6">
                             <label for="exampleInputTitle1">Pseudo</label>
@@ -408,372 +291,9 @@
     </div>
 
 
-    <div class="text-center mb-5 mb-md-8">
-        <h1>Related Courses</h1>
-        <p class="font-size-lg text-capitalize">Discover your perfect program in our courses.</p>
-    </div>
+    
 
-    <div class="mx-n4 mb-12" data-flickity='{"pageDots": true, "prevNextButtons": false, "cellAlign": "left", "wrapAround": true, "imagesLoaded": true}'>
-        <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-            <!-- Card -->
-            <div class="card border shadow-dark-hover p-2 sk-fade">
-                <!-- Image -->
-                <div class="card-zoom position-relative">
-                    <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
-                        <img class="rounded shadow-light-lg" src="assets/img/products/product-15.jpg" alt="...">
-                    </a>
-
-                    <span class="sk-fade-right badge-float bottom-0 right-0 mb-2 me-2">
-                        <ins class="h5 mb-0 text-white">$415.99</ins>
-                    </span>
-                </div>
-
-                <!-- Footer -->
-                <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                    <!-- Preheading -->
-                    <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Photography</span></a>
-
-                    <!-- Heading -->
-                    <div class="position-relative">
-                        <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Fashion Photography From Professional</h5></a>
-
-                        <div class="row mx-n2 align-items-end">
-                            <div class="col px-2">
-                                <ul class="nav mx-n3">
-                                    <li class="nav-item px-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="me-2 d-flex icon-uxs text-secondary">
-                                                <!-- Icon -->
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
-                                                </svg>
-
-                                            </div>
-                                            <div class="font-size-sm">5 lessons</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-auto px-2 text-right">
-                                <div class="star-rating mb-2 mb-lg-0">
-                                    <div class="rating" style="width:100%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-            <!-- Card -->
-            <div class="card border shadow-dark-hover p-2 sk-fade">
-                <!-- Image -->
-                <div class="card-zoom position-relative">
-                    <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
-                        <img class="rounded shadow-light-lg" src="assets/img/products/product-14.jpg" alt="...">
-                    </a>
-
-                    <span class="sk-fade-right badge-float bottom-0 right-0 mb-2 me-2">
-                        <ins class="h5 mb-0 text-white">$415.99</ins>
-                    </span>
-                </div>
-
-                <!-- Footer -->
-                <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                    <!-- Preheading -->
-                    <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Marketing</span></a>
-
-                    <!-- Heading -->
-                    <div class="position-relative">
-                        <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Productivity and Time Management for workplace</h5></a>
-
-                        <div class="row mx-n2 align-items-end">
-                            <div class="col px-2">
-                                <ul class="nav mx-n3">
-                                    <li class="nav-item px-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="me-2 d-flex icon-uxs text-secondary">
-                                                <!-- Icon -->
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
-                                                </svg>
-
-                                            </div>
-                                            <div class="font-size-sm">5 lessons</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-auto px-2 text-right">
-                                <div class="star-rating mb-2 mb-lg-0">
-                                    <div class="rating" style="width:100%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-            <!-- Card -->
-            <div class="card border shadow-dark-hover p-2 sk-fade">
-                <!-- Image -->
-                <div class="card-zoom position-relative">
-                    <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
-                        <img class="rounded shadow-light-lg" src="assets/img/products/product-16.jpg" alt="...">
-                    </a>
-
-                    <span class="sk-fade-right badge-float bottom-0 right-0 mb-2 me-2">
-                        <ins class="h5 mb-0 text-white">$415.99</ins>
-                    </span>
-                </div>
-
-                <!-- Footer -->
-                <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                    <!-- Preheading -->
-                    <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Personal Development</span></a>
-
-                    <!-- Heading -->
-                    <div class="position-relative">
-                        <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Learn Ethical Hacking From Scratch</h5></a>
-
-                        <div class="row mx-n2 align-items-end">
-                            <div class="col px-2">
-                                <ul class="nav mx-n3">
-                                    <li class="nav-item px-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="me-2 d-flex icon-uxs text-secondary">
-                                                <!-- Icon -->
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
-                                                </svg>
-
-                                            </div>
-                                            <div class="font-size-sm">5 lessons</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-auto px-2 text-right">
-                                <div class="star-rating mb-2 mb-lg-0">
-                                    <div class="rating" style="width:100%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-            <!-- Card -->
-            <div class="card border shadow-dark-hover p-2 sk-fade">
-                <!-- Image -->
-                <div class="card-zoom position-relative">
-                    <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
-                        <img class="rounded shadow-light-lg" src="assets/img/products/product-12.jpg" alt="...">
-                    </a>
-
-                    <span class="sk-fade-right badge-float bottom-0 right-0 mb-2 me-2">
-                        <ins class="h5 mb-0 text-white">$415.99</ins>
-                    </span>
-                </div>
-
-                <!-- Footer -->
-                <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                    <!-- Preheading -->
-                    <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Development</span></a>
-
-                    <!-- Heading -->
-                    <div class="position-relative">
-                        <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">The Complete JavaScript Course 2020: Real Projects!</h5></a>
-
-                        <div class="row mx-n2 align-items-end">
-                            <div class="col px-2">
-                                <ul class="nav mx-n3">
-                                    <li class="nav-item px-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="me-2 d-flex icon-uxs text-secondary">
-                                                <!-- Icon -->
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
-                                                </svg>
-
-                                            </div>
-                                            <div class="font-size-sm">5 lessons</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-auto px-2 text-right">
-                                <div class="star-rating mb-2 mb-lg-0">
-                                    <div class="rating" style="width:100%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-            <!-- Card -->
-            <div class="card border shadow-dark-hover p-2 sk-fade">
-                <!-- Image -->
-                <div class="card-zoom position-relative">
-                    <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
-                        <img class="rounded shadow-light-lg" src="assets/img/products/product-13.jpg" alt="...">
-                    </a>
-
-                    <span class="sk-fade-right badge-float bottom-0 right-0 mb-2 me-2">
-                        <ins class="h5 mb-0 text-white">$415.99</ins>
-                    </span>
-                </div>
-
-                <!-- Footer -->
-                <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                    <!-- Preheading -->
-                    <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Marketing</span></a>
-
-                    <!-- Heading -->
-                    <div class="position-relative">
-                        <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Learn Ethical Hacking From Scratch</h5></a>
-
-                        <div class="row mx-n2 align-items-end">
-                            <div class="col px-2">
-                                <ul class="nav mx-n3">
-                                    <li class="nav-item px-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="me-2 d-flex icon-uxs text-secondary">
-                                                <!-- Icon -->
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
-                                                </svg>
-
-                                            </div>
-                                            <div class="font-size-sm">5 lessons</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-auto px-2 text-right">
-                                <div class="star-rating mb-2 mb-lg-0">
-                                    <div class="rating" style="width:100%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-            <!-- Card -->
-            <div class="card border shadow-dark-hover p-2 sk-fade">
-                <!-- Image -->
-                <div class="card-zoom position-relative">
-                    <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
-                        <img class="rounded shadow-light-lg" src="assets/img/products/product-11.jpg" alt="...">
-                    </a>
-
-                    <span class="sk-fade-right badge-float bottom-0 right-0 mb-2 me-2">
-                        <ins class="h5 mb-0 text-white">$415.99</ins>
-                    </span>
-                </div>
-
-                <!-- Footer -->
-                <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                    <!-- Preheading -->
-                    <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Development</span></a>
-
-                    <!-- Heading -->
-                    <div class="position-relative">
-                        <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">The Complete JavaScript Course 2020: Real Projects!</h5></a>
-
-                        <div class="row mx-n2 align-items-end">
-                            <div class="col px-2">
-                                <ul class="nav mx-n3">
-                                    <li class="nav-item px-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="me-2 d-flex icon-uxs text-secondary">
-                                                <!-- Icon -->
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
-                                                </svg>
-
-                                            </div>
-                                            <div class="font-size-sm">5 lessons</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-auto px-2 text-right">
-                                <div class="star-rating mb-2 mb-lg-0">
-                                    <div class="rating" style="width:100%;"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-lg-4 col-xl-3 pb-4 pb-md-5" style="padding-right:15px;padding-left:15px;">
-            <!-- Card -->
-            <div class="card border shadow-dark-hover p-2 sk-fade">
-                <!-- Image -->
-                <div class="card-zoom position-relative">
-                    <a href="course-single-v5.html" class="card-img sk-thumbnail img-ratio-3 d-block">
-                        <img class="rounded shadow-light-lg" src="assets/img/products/product-10.jpg" alt="...">
-                    </a>
-
-                    <span class="sk-fade-right badge-float bottom-0 right-0 mb-2 me-2">
-                        <ins class="h5 mb-0 text-white">$415.99</ins>
-                    </span>
-                </div>
-
-                <!-- Footer -->
-                <div class="card-footer px-2 pb-2 mb-1 pt-4 position-relative">
-                    <!-- Preheading -->
-                    <a href="course-single-v5.html"><span class="mb-1 d-inline-block text-gray-800">Marketing</span></a>
-
-                    <!-- Heading -->
-                    <div class="position-relative">
-                        <a href="course-single-v5.html" class="d-block stretched-link"><h5 class="line-clamp-2 h-md-48 h-lg-58 me-md-8 me-lg-10 me-xl-4 mb-2">Productivity and Time Management for workplace</h5></a>
-
-                        <div class="row mx-n2 align-items-end">
-                            <div class="col px-2">
-                                <ul class="nav mx-n3">
-                                    <li class="nav-item px-3">
-                                        <div class="d-flex align-items-center">
-                                            <div class="me-2 d-flex icon-uxs text-secondary">
-                                                <!-- Icon -->
-                                                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M17.1947 7.06802L14.6315 7.9985C14.2476 7.31186 13.712 6.71921 13.0544 6.25992C12.8525 6.11877 12.6421 5.99365 12.4252 5.88303C13.0586 5.25955 13.452 4.39255 13.452 3.43521C13.452 1.54098 11.9124 -1.90735e-06 10.0197 -1.90735e-06C8.12714 -1.90735e-06 6.58738 1.54098 6.58738 3.43521C6.58738 4.39255 6.98075 5.25955 7.61414 5.88303C7.39731 5.99365 7.1869 6.11877 6.98502 6.25992C6.32752 6.71921 5.79178 7.31186 5.40787 7.9985L2.8447 7.06802C2.33612 6.88339 1.79688 7.26044 1.79688 7.80243V16.5178C1.79688 16.8465 2.00256 17.14 2.31155 17.2522L9.75312 19.9536C9.93073 20.018 10.1227 20.0128 10.2863 19.9536L17.7278 17.2522C18.0368 17.14 18.2425 16.8465 18.2425 16.5178V7.80243C18.2425 7.26135 17.704 6.88309 17.1947 7.06802ZM10.0197 1.5625C11.0507 1.5625 11.8895 2.40265 11.8895 3.43521C11.8895 4.46777 11.0507 5.30792 10.0197 5.30792C8.98866 5.30792 8.14988 4.46777 8.14988 3.43521C8.14988 2.40265 8.98866 1.5625 10.0197 1.5625ZM9.23844 18.1044L3.35938 15.9703V8.91724L9.23844 11.0513V18.1044ZM10.0197 9.67255L6.90644 8.54248C7.58164 7.51892 8.75184 6.87042 10.0197 6.87042C11.2875 6.87042 12.4577 7.51892 13.1329 8.54248L10.0197 9.67255ZM16.68 15.9703L10.8009 18.1044V11.0513L16.68 8.91724V15.9703Z" fill="currentColor"/>
-                                                </svg>
-
-                                            </div>
-                                            <div class="font-size-sm">5 lessons</div>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
-
-                            <div class="col-auto px-2 text-right">
-                                <div class="star-rating mb-2 mb-lg-0">
-                                    <div class="rating" style="width:100%;"></div>
-                                </div>
-                            </div>
-
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    
 </div>
 
 {% endif %}

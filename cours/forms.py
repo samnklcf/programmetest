@@ -33,4 +33,13 @@ class add_themeForm(forms.ModelForm):
         model = Theme
         field = ('__all__')
         exclude = ('auteur','slug', 'identifiant')
+
+class emailForm(forms.ModelForm):
+    class Meta:
+        model = email
+        field = ('email',)
+        exclude = ('date',)
+        
+
     
+

@@ -26,6 +26,8 @@ urlpatterns = [
     path("misajour/theme/<str:slug>", update_lesson.as_view(), name="maj"),
     path('liste/mespostes', user_liste, name="use_liste"),
     path('liste/supprimer/<str:slug>', supp.as_view(), name="supp"),
+    path('apropos', about, name="about"),
+   
 
     
     

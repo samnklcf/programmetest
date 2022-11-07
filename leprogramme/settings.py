@@ -28,12 +28,14 @@ SECRET_KEY = 'django-insecure-!gz#cxvs^mdp9bifxa@4b=$f&9%!0%@1(xw&s3ip2-pc@91pho
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["https://leprogramme.herokuapp.com/", "127.0.0.1"]
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'jet.dashboard',
+    'jet',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -131,10 +133,10 @@ STATIC_URL = 'static/'
 
 
 STATICFILES_DIRS = [
-os.path.join(BASE_DIR, 'static')
+os.path.join(BASE_DIR, 'static/cours')
 ]
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = os.path.join(BASE_DIR, 'statifiles/')
 
 
 TEMPLATES[0]['DIRS'] = [os.path.join(BASE_DIR, 'templates')]
