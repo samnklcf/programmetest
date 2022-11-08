@@ -25,8 +25,8 @@ urlpatterns = [
     path('cours/', include('cours.urls')),
     path('', include('cours.urls')),
     path("ckeditor/", include('ckeditor_uploader.urls'), name=""),
-    path('jet/', include('jet.urls', 'jet')),
-    path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
+    # path('jet/', include('jet.urls', 'jet')),
+    # path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
 ]
 
 urlpatterns += static(settings.MEDIA_URL,
