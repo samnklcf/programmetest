@@ -5,7 +5,6 @@ Django
 django-autoslug
 django-ckeditor
 django-heroku
-django-jet
 django-jet-reboot
 django-js-asset
 django-tinymce
