@@ -14,6 +14,7 @@ from django.urls import reverse
 from .forms import *
 
 
+
 # Create your views here.
 
 # class home(ListView):
