@@ -55,32 +55,38 @@ def cat(request):
 
 @login_required(redirect_field_name="/cours/login/")
 def themedetail(request, slug):
-    
+    the = Theme.objects.all()
     theme = Theme.objects.get(slug=slug)
     commentaires = theme.commentaire_set.all()
-   
-    
-    
     cats = Category.objects.all()
     p = Paginator(cats, 10)
     page = request.GET.get('categorie')
     cat = p.get_page(page)
+        
+    if request.method == 'POST':
+        user = request.user
+        theme_id = request.POST['theme_id']
+        identifiant = request.POST['identifiant']
+        prix = request.POST['prix']
+        
+        ident = historique.objects.filter(user=user)
+        for i in ident:
+            if identifiant == i.identifiant:
+                break
+        else:
+            story = historique(user=user, theme_id=theme_id, identifiant=identifiant, prix=prix)
+            story.save()
+                
+        
+        
+        return redirect(f"../../lessonvideo/{identifiant}")
     
     
     
-    if request.method == "POST":
-        form = CommentaireForm(request.POST)
-        if form.is_valid():
-            form.save(commit=False)
-            form.instance.theme = theme
-            form.save()
-            return redirect('themedetail', slug=slug)
-    else:
-        form = CommentaireForm()
+   
     context = {
         "theme" : theme,
         "commentaires": commentaires,
-        "form" : form,
         'cat': cat,
     }
     
@@ -108,19 +114,14 @@ def parCategorie(request, slug):
 
 
 
-# def cat(request, category=None):
-#     Lessons = Lesson.objects.all()
-#     Categories = Category.objects.all()
-#     if category:
-#         category = Category.objects.get(Category, slug=category)
-#         Lessons= Lessons.filter(category=category)
-#     return render(request, 'cours/test/cat.html', locals())
+# --------------------Afficher story utilisateurs--------------------------
+
+def listestory(request):
+    stories = historique.objects.filter(user = request.user).order_by('-date')
+    
+    return render(request, 'cours/listestory.html' , locals())
 
 
-# class cours(DetailView):
-#     model = Lesson
-#     context_object_name = "lesson"
-#     template_name = "cours/test/cours.html"
 
 # -----------------Voir un seul cours et ses détails------------------
 @login_required(redirect_field_name="/cours/login/")
@@ -144,7 +145,7 @@ def liste(request):
     return render (request, 'cours/liste.html', context)
 
 # --------------------------------------userlesson theme ----------------
-
+@login_required(redirect_field_name="/cours/login/")
 def user_liste(request):
     themes = Theme.objects.all().order_by('-date')
     cats = Category.objects.all()
@@ -172,23 +173,21 @@ class supp(DeleteView):
     
 
 
+# ----------------------------afficher le profil d'un professeur---------------
 
-# --------------------Afficher les lesson 1 à 1----------------------
 
-# def ListeLesson(request, slug):
+def showprofile(request, slug):
+    professeur = User.objects.get(username=slug)
+    theme = professeur.theme_set.all()
+    cats = Category.objects.all()
+    p = Paginator(cats, 10)
+    page = request.GET.get('categorie')
+    cat = p.get_page(page)
     
-#     theme = Theme.objects.get(slug=slug)
-#     # lesson = theme.lesson_set.all().order_by('-date')
-    
-#     lesson = theme.lesson_set.all()
-    
-#     p = Paginator(lesson, 1)
-#     page = request.GET.get('cours')
-#     lessons = p.get_page(page)
-    
-    
-    
-#     return render(request, 'cours/test/liste.html', {'theme':theme, 'lesson': lesson, 'lessons': lessons})
+    return render(request, 'cours/showprofile.html', locals())
+
+
+
 
 # -------------------------------lesson en video------------------
 
@@ -196,15 +195,24 @@ class supp(DeleteView):
 def lessonvideo(request, slug):
     cours = "9b05-48ca0f986dc5?a507b98e-6464-4679-8587-41a6c8141d8b"
     theme = Theme.objects.get(identifiant=slug)
-    lesson = theme.lesson_set.all()
-    p = Paginator(lesson,1)
-    page = request.GET.get(f'{cours}')
-    lessons = p.get_page(page)
+    commentaires = theme.commentaire_set.all()
+    
+    if request.method == "POST":
+        form = CommentaireForm(request.POST)
+        if form.is_valid():
+            form.save(commit=False)
+            form.instance.theme = theme
+            form.save()
+            return redirect(f'../../lessonvideo/{slug}')
+    else:
+        form = CommentaireForm()
+    
     context = {
         'theme':theme, 
-        'lesson': lesson, 
-        'lessons': lessons,
         'cours': cours,
+        "commentaires": commentaires,
+        "form" : form,
+        'cat': cat,
         }
     
     return render(request, 'cours/lessonvideo.html', context)
@@ -238,7 +246,7 @@ def register(request):
 
 class update_lesson(UpdateView):
     model = Theme
-    fields = ('title', 'description', "miniature", "video", "prix", 'niveau', "categorie", 'timing')
+    fields = ('title', 'description', "miniature", "video", "prix", 'document_pdf', 'niveau', "categorie", 'timing')
     context_object_name = "themes"
     template_name = "cours/update_cours.html"
     def get_success_url(self):
@@ -248,11 +256,6 @@ class update_lesson(UpdateView):
 
 
 
-
-# class LoginTap(LoginView):
-#     template_name = 'cours/connexion.html'
-#     form = ConnexionForm
-#     next = "/etudiant/"
 
 # -------------------------login----------------------------
 
@@ -328,6 +331,38 @@ def deconnexion(request):
     logout(request)
     return redirect('home')
 
+
+# -----------------------------lister les profd-------------------------
+
+
+
+
+
+# ------------------------about----------------------------
+def about(request):
+    perso =profil.objects.all()
+    
+    cats = Category.objects.all()
+    p = Paginator(cats, 10)
+    page = request.GET.get('categorie')
+    cat = p.get_page(page)
+    
+    
+    if request.method == 'POST':
+        test = False
+        form = emailForm(request.POST)
+        if form.is_valid():
+            form.save()
+            test = True
+            return redirect(reverse(about))
+        
+    else:
+        form = emailForm()
+    
+    
+    
+    return render(request, 'cours/about.html', locals())
+
 # ----------------------partie des commentaire ---------------------
 
 
@@ -336,12 +371,9 @@ def deconnexion(request):
 #     lesson = theme.lesson_set.get(slug=slug)
 #     return render(request, 'cours/test/index.html', locals())
  
-# def voir(request, slug):
-#     cate = Category.objects.get(nom=slug)
-#     lesson = cate.lesson_set.all()
-#     return render(request, 'cours/test/voir.html', locals())
 
-# def detail(request, slug):
-    
-#     return render(request, 'cours/test/cours.html', locals())
+
+
+
+
 

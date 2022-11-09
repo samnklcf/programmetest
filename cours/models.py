@@ -57,6 +57,7 @@ class Theme(models.Model):
     prix = models.PositiveIntegerField()
     date = models.DateTimeField(auto_now=True)
     niveau = models.ForeignKey(Niveau, on_delete=models.CASCADE)
+    document_pdf = models.FileField(verbose_name="Document PDF", null=True)
     categorie = models.ForeignKey(Category,on_delete=models.CASCADE)
     auteur = models.ForeignKey(User,on_delete=models.CASCADE)
     identifiant = models.CharField(null=True, max_length=100, blank=True)
@@ -107,22 +108,31 @@ class profil(models.Model):
     image = models.ImageField(
         blank=True, upload_to="img", null= False, default="default.jpg")
     statut = models.CharField(max_length=80, choices=choix_prof)
+    profession = models.CharField(max_length=50, null=False)
+
     
     date = models.DateTimeField(auto_now=True)
+    
+    def __str__(self):
+        return self.user.username
     
 
 class historique(models.Model):
 
     user = models.ForeignKey(User, verbose_name=("Utilisateur"), on_delete=models.CASCADE)
-    theme_id = models.CharField(default="", max_length=1000)
+    theme_id = models.CharField(max_length=1000, null=True)
+    identifiant = models.CharField(max_length=1000)
+    prix = models.CharField(max_length=1000)
+    
     date = models.DateTimeField(auto_now=True)
+    
 
     class Meta:
         verbose_name = ("Order par theme")
         verbose_name_plural = ("Order par theme")
 
     def __str__(self):
-        return f'{self.user.username} a prix le theme " {self.theme} "'
+        return f'{self.user.username} a prix le theme " {self.theme_id} "'
     
 
    
@@ -130,7 +140,7 @@ class historique(models.Model):
     
 
 class etudiant(profil):
-    bio = models.TextField(null = False)
+    bio = RichTextField(null = False)
     def __str__(self):
         return self.user.username
 
@@ -143,6 +153,21 @@ class professeur(profil):
     def __str__(self):
         return self.user.username
     
+
+class email(models.Model):
+    email = models.EmailField(max_length=254)
+    date = models.DateField(auto_now_add=True)
+    
+
+    class Meta:
+        verbose_name = ("Abonnée")
+        verbose_name_plural = ("Abonnées")
+
+    def __str__(self):
+        return self.email
+
+   
+
     
     
     

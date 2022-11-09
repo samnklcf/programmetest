@@ -1,4 +1,5 @@
 {% load static %}
+{% load widget_tweaks %}
 <!doctype html>
 <html lang="en">
 
@@ -49,9 +50,9 @@
     {% else %}
     {% include 'cours/loader.html' %}
     
-    {% for lesson in lessons %}
+    
 
-    <header class="bg-white border-bottom py-3 header-fixed" >
+    <header class="bg-white border-bottom py-3" >
         <div class="px-5 px-lg-8 w-100">
             <div class="d-md-flex align-items-center">
                 <!-- Brand -->
@@ -74,54 +75,35 @@
   
 
     
-    <div class="mt-15 mt-md-11 pt-md-3">
+    <div class="mt-15 mt-md-11 pt-md-3" style="margin: 20px 0 0 !important">
      
 
       <div class="container">
           <div class="row mb-11">
               <div class="col-lg-11 col-wd-12 ms-lg-auto pt-11 pt-lg-8">
-                  <h2 class="font-size-xl mb-6">
-                      Leçon: {{ lesson.title }}
-                  </h2>
+                  
 
-                  <video src="{{ lesson.video.url }}" class="img-fluid" controls ></video>
+                  <video src="{{ theme.video.url }}" class="img-fluid" controls poster="{{ theme.miniature.url }}" ></video>
+                  <br/>
+                  <br/>
+                  <br/>
+
+
+                  <div class="d-md-flex align-items-center justify-content-between mb-8">
+                  {% if theme.document_pdf %}
+                    <a href="{{ theme.document_pdf.url }}" class="btn btn-sm btn-primary ms-md-6 px-6 mb-3 mb-md-0 flex-shrink-0" download="true">Télécharger le document PDF</a>
+
+                    {% else %}
+                    <p>Il n'y a pas de document pdf pour ce cours. 🤗</p>
+                    
+                    {% endif %}
+                </div>
 
                   <h3 class="">Description</h3>
 
-                  {{lesson.description | safe}}
-!
-                  <div class="d-md-flex align-items-center justify-content-between mb-8">
+                  {{theme.description | safe}}
 
-                     {% if lessons.has_previous %}
-                     <a href="?{{ cours }}={{ lessons.previous_page_number }}" class="btn btn-teal d-flex align-items-center text-white mb-5 mb-md-0 btn-block mw-md-280p justify-content-center">
-                      <i class="fas fa-arrow-left font-size-xs"></i>
-                      <span class="ms-3">Cours précédent</span>
-                     </a>
-                     {% endif %}
-
-                     {% if lessons.has_previous == False %}
-                     <a href="?{{ cours }}=1" class="btn btn-teal d-flex align-items-center text-white mb-5 mb-md-0 btn-block mw-md-280p justify-content-center">
-                      <i class="fas fa-stop-circle font-size-xs"></i>
-                      <span class="ms-3">Pas de cours précédent</span>
-                     </a>
-                     {% endif %}
-                     
-                      
-                      
-
-                      Page {{ lessons.number }} / {{ lessons.paginator.num_pages }}
-                       
-                      {% if lessons.has_next %}
-                      <a href="?{{ cours }}={{ lessons.next_page_number }}" class="btn btn-teal d-flex align-items-center text-white btn-block mw-md-280p justify-content-center mt-0">
-                          <span class="me-3">Cours suivant</span>
-                          <i class="fas fa-arrow-right font-size-xs"></i>
-                      </a>
-                      {% endif %}
-                      
-                      
-                      
-                      
-                  </div>
+                  
 
                   
 
@@ -130,9 +112,90 @@
               </div>
           </div>
       </div>
+      
   </div>
+  <div class="container">
+    <div class="row pt-8">
+        <div class="col-lg-10 col-xl-8 mx-lg-auto">
+            
+
+            
+
+            
+
+            <div class="mb-8">
+                <h3 class="mb-6">Feedbacks ({{ commentaires.count }})</h3>
+                
+
+                <ul class="list-unstyled pt-2">
+                    
+                    {% for commentaire in commentaires %}
+                    <li class="media d-flex" style="border-radius: 10px; padding: 12px; box-shadow: 0 0 24px rgba(0, 0, 0, 0.187); margin-bottom: 10px;">
+                        <div class="avatar avatar-xxl me-3 me-md-6 flex-shrink-0">
+                            <img src="{{ theme.miniature.url }}" alt="..." class="avatar-img rounded-circle">
+                        </div>
+                        <div class="media-body flex-grow-1">
+                            <div class="d-md-flex align-items-center mb-5">
+                                <div class="me-auto mb-4 mb-md-0">
+                                    <h5 class="mb-0">{{commentaire.userame}}</h5>
+                                    <p class="font-size-sm font-italic">{{commentaire.date}}</p>
+                                </div>
+                                <div class="star-rating">
+                                    <div class="rating" style="width:50%;"></div>
+                                </div>
+                            </div>
+                            <p class="mb-6 line-height-md">{{ commentaire.message | safe }}</p>
+                        </div>
+                    </li>
+                    {% empty %}
+                    <center style="width: 100% !important; display:flex; align-items:center; justify-content:center;">
+                        <div class="sam" style="text-align: center; width: 500px; color: white !important; background: #06054d; padding: 20px; border-radius: 4px;">
+            
+                            <h2 style='text-align: center; color: white !important; font: 900 !important;'>Soyez le premier à commenter<br> 🤗</h2>
+                            <p><a href="{% url 'home' %}"  class="btn btn-white">Retour à l'accueil</a></p>
+                        </div>
+                    </center>
+
+
+                    {% endfor %}
+                </ul>
+               
+
+                <div class="border shadow rounded p-6 p-md-9">
+                    <h3 class="mb-2">Laissez nous vos avis</h3>
+                    <div class=""></div>
+                    <form action="" method="post"> 
+                        {% csrf_token %}
+                    
+
+                        <div class="form-group mb-6">
+                            <label for="exampleInputTitle1">Pseudo</label>
+                           
+                            {% render_field form.userame class="form-control placeholder-1" id="exampleInputTitle1" placeholder="Votre psuedo" %}
+                        </div>
+
+                        <div class="form-group mb-12">
+                            
+                            
+                            {% render_field form.message  class="form-control placeholder-1 w-100" id="exampleFormControlTextarea1" rows="6" cols="200" placeholder="Votre message" %}
+
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-block mw-md-300p">Envoyer</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     
-    {% endfor %}
+
+    
+</div>
+  
+    
+    
 
   
   <script src="{% static 'cours/assets/js/loader.js' %}"></script>

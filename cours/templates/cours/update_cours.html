@@ -246,7 +246,7 @@
     <div class="mt-15 mt-md-11 pt-md-3" style="margin: 30px 0 0 !important;">
         <div class="container mb-11">
             <div class="row gx-0">
-                <div class="col-md-7 col-xl-4 mx-auto">
+                
                     <h3 class="mb-6"></h3>
 
                     <style>
@@ -296,12 +296,13 @@
                     <h1>Modifier une thème</h1>
                     <form action="" method="post" enctype="multipart/form-data" class="mb-5 samnk">
                         {% csrf_token %}
+                        {{form.media}}
                         {{form.as_p | safe}}
                         
                         <button type="submit" class="btn btn-block">Valider</button>
                     
                     </form>
-                </div>
+                
             </div>
         </div>
 

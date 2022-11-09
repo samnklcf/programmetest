@@ -119,13 +119,15 @@
                         </a>
                         
                     </li>
+
+                    {% comment %} ---------------vente------------------ {% endcomment %}
     
-                    <li class="nav-item dropdown dropdown-full-width">
+                    {% comment %} <li class="nav-item dropdown dropdown-full-width">
                         <a class="nav-link " id="navbarLandings" href="{% url 'toutcat' %}">
                             Ventes
                         </a>
                         
-                    </li>
+                    </li> {% endcomment %}
     
                    
                     {% comment %} <li class="nav-item dropdown dropdown-full-width">
@@ -246,8 +248,8 @@
     <div class="mt-15 mt-md-11 pt-md-3" style="margin: 30px 0 0 !important;">
         <div class="container mb-11">
             <div class="row gx-0">
-                <div class="col-md-7 col-xl-4 mx-auto">
-                    <h3 class="mb-6"></h3>
+                {% comment %} <div class="col-md-7 col-xl-4 mx-auto">
+                    <h3 class="mb-6"></h3> {% endcomment %}
 
                     <style>
                         .samnk p {
@@ -293,20 +295,40 @@
                             color: #090761;
                         }
                     </style>
-                    <h1>Créer une thème</h1>
+                    {% if user.is_staff %}
+                    <h1>Créer une leçon / tutoriel</h1>
                     <form action="" method="post" enctype="multipart/form-data" class="mb-5 samnk">
                         {% csrf_token %}
+                        {{ form.media }}
                         {{form.as_p | safe}}
                         
                         <button type="submit" class="btn btn-block">Valider</button>
                     
                     </form>
+                    
+                    {% else %}
+                    
+                    <div class="row row-cols-md-2 row-cols-xl-3 mb-2" style="padding: 15px !important;">
+
+    
+                        <center style="width: 100% !important; display:flex; align-items:center; justify-content:center;">
+                            <div class="sam" style="text-align: center; width: 500px; color: white !important; background: #06054d; padding: 20px; border-radius: 4px;">
+                
+                                <h2 style="text-align: center; color: white !important; font: 900 !important;">Vous n'êtes pas autoriser {{ request.user.username }}<br> 🤗</h2>
+                                <p><a href="/" class="btn btn-white">Retour à l'accueil</a></p>
+                            </div>
+                        </center>
+                    
                 </div>
+                    {% endif %}
+
+                    
+                {% comment %} </div> {% endcomment %}
             </div>
         </div>
 
         
-    </div>
+    {% comment %} </div> {% endcomment %}
       
  
 

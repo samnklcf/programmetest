@@ -22,15 +22,20 @@ class ProfilForm(forms.ModelForm):
         exclude = ('user',)
         
 
-class historiqueForm(forms.ModelForm):
-    class Meta:
-        model = historique
-        fields = ('__all__')
-        exclude = ('theme_id','user')
+
         
 class add_themeForm(forms.ModelForm):
     class Meta:
         model = Theme
         field = ('__all__')
         exclude = ('auteur','slug', 'identifiant')
+
+class emailForm(forms.ModelForm):
+    class Meta:
+        model = email
+        field = ('email',)
+        exclude = ('date',)
+        
+
     
+
